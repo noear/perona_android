@@ -25,7 +25,7 @@ public class App extends Application {
 
         XApp.global().addModule(new XModuleKbx());
 
-        XClient.call(this, "kdbx://code/id?mobile=xx&ugroupId=xx&callback=xxxx", null, new XCallback() {
+        XClient.call(this, "kbx://code/id?mobile=xx&ugroupId=xx&callback=xxxx", null, new XCallback() {
             @Override
             public void handle(XContext c, Object o) throws Exception {
                 Object callback = c.param("callback");

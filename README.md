@@ -1,5 +1,5 @@
 # perona for android
-perona是一个跨平台的服务启动框架。有服务端版本（像springboot），有android版本，有ios版本。<br/>
+perona是一个跨平台的服务启动框架。是服务端版本solon的情侣版，有android版本，有ios版本。<br/>
 <br/>
 在将客户端的作用是实现组件功能的服务化，进而为大项目的组件化开发，提供一套弱偶合的方案。比如像支付宝那种有N多组件组成的项目...<br/>
 <br/>
@@ -26,7 +26,7 @@ public class App extends Application {
         //可以初始化一些参数
         //
         Map<String, Object> args = new HashMap<>();
-        args.put("evn", 1);
+        args.put("env", 1);
 
         XApp.start(this,  args);
         //

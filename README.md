@@ -12,7 +12,7 @@ perona是一个跨平台的服务启动框架。有服务端版本（像springbo
 
 #### 1、相关项目添加引用
 
-`implementation 'org.noear:perona:0.1.14' //暂时还不能用，未上传中央仓库：）`
+`implementation 'org.noear:perona:0.1.18' //暂时还不能用，未上传中央仓库：）`
 
 #### 2、主项目启动服务
 ```java

@@ -24,7 +24,7 @@ public class XModuleImpl implements XModule {
             }
         });
 
-        app.reg(this, "kabao51://code/*", new XHandler() {
+        app.reg(this, "kbx://code/*", new XHandler() {
             @Override
             public void handle(XContext c) throws Exception {
                 String code = c.path();

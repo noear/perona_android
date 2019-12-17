@@ -23,7 +23,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        XApp.start(this, new XRouterExp<XHandler>());
+        XApp.start(this);
         //...
     }
 }
@@ -46,8 +46,8 @@ public class XModule2 implements XModule {
     }
 }
 ```
-##### 3.2 添加配置文件 /assets/solonboot/mobule2.properties （完成组件自发现的配置）
-`solonboot.xmodule=demo.module2.XModule2`
+##### 3.2 添加配置文件 /assets/perona/mobule2.properties （完成组件自发现的配置）
+`perona.xmodule=demo.module2.XModule2`
 
 #### 4、主项目引入组module2（内部配置需要自己完成）
 `compile project(':module2')`

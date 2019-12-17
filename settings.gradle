@@ -1,0 +1,1 @@
+include ':demo_app', ':perona', ':demo_module2'

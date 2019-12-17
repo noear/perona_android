@@ -12,24 +12,14 @@ public class XModuleKbx implements XModule {
         app.reg(this, "kbx://code/*", new XHandler() {
             @Override
             public void handle(XContext c) throws Exception {
-                Integer code = Integer.parseInt(c.path().substring(1));
-
-                switch (code){
-                    case 1212:break;
-                    default:break;
-                }
+                c.output(c.path());
             }
         });
 
         app.reg(this, "package://code/*", new XHandler() {
             @Override
             public void handle(XContext c) throws Exception {
-                Integer code = Integer.parseInt(c.path().substring(1));
-
-                switch (code){
-                    case 1212:break;
-                    default:break;
-                }
+                c.output(c.url());
             }
         });
     }

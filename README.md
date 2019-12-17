@@ -23,7 +23,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        XApp.start(this, new XRouterExp<XHandler>());
+        XApp.start(this);
         //...
     }
 }

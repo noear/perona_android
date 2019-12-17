@@ -1,67 +1,24 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
-
-
-uploadArchives{
-    repositories.mavenDeployer{
-        repository(url:"https://oss.sonatype.org/service/local/staging/deploy/maven2"){
-            authentication(userName: "noear",password:"")
-        }
-
-
-        pom.groupId = "org.noear"
-        pom.artifactId = "perona"
-        pom.version = "0.1.18"
-
-        pom.project {
-            name "perona"
-            description "perona"
-            packaging "aar"
-            url "https://github.com/noear/perona_android"
-
-            scm {
-                url        "scm:git:git@github.com:noear/perona_android.git"
-                connection "scm:git:git@github.com:noear/perona_android.git"
-                developerConnection "git@github.com:noear/perona_android.git"
-            }
-
-            licenses {
-                license {
-                    name "The Apache Software License, Version 2.0"
-                    url "http://www.apache.org/licenses/LICENSE-2.0.txt"
-                }
-            }
-
-            developers {
-                developer {
-                    id "noear"
-                    name "noear"
-                    email "noear@live.cn"
-                }
-            }
-        }
-    }
-}
-
-
-//signing {
-//    sign configurations.archives
-//}
 
 android {
     compileSdkVersion 28
+    buildToolsVersion "29.0.2"
+
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -69,4 +26,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

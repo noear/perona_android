@@ -21,12 +21,12 @@ public class XApp {
     }
 
     /** 启动应用（全局只启动一个） */
-    public static XApp start(Application application, XRouter<XHandler> router) {
-        return start(application,router,null);
+    public static XApp start(Application application) {
+        return start(application,null);
     }
-    public static XApp start(Application application, XRouter<XHandler> router, Map<String,Object> params) {
+    public static XApp start(Application application, Map<String,Object> params) {
         if (_global == null) {
-            _global = new XApp(application, router, params);
+            _global = new XApp(application, params);
 
             //加载组件
             try {
@@ -69,14 +69,14 @@ public class XApp {
     }
 
     /** 路由器 */
-    private XRouter<XHandler> _router;
+    private XRouter _router;
     /** 当前应用 */
     private Application _application;
     /** 启动参数 */
     private Map<String,Object> _params;
 
-    private XApp(Application application, XRouter<XHandler> router,Map<String,Object> params) {
-        _router = router;
+    private XApp(Application application, Map<String,Object> params) {
+        _router = new XRouter();
         _application = application;
         _params = new HashMap<>();
 

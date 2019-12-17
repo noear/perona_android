@@ -1,6 +1,8 @@
 package org.noear.perona;
 
 
+import org.noear.perona.protocol.XHandler;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -8,12 +10,12 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 /** 通用路由器（基于表达式） */
-public class XRouter<T> {
-    private final Map<String,XRuleListener<T>> _routerList = new Hashtable<>();
+public class XRouter {
+    private final Map<String,XRuleListener<XHandler>> _routerList = new Hashtable<>();
 
     /** 添加路由 */
 
-    public void add(Object obj,String path, T target) {
+    public void add(Object obj,String path, XHandler target) {
         String key = obj.hashCode()+"_"+path;
         String expr = path;
 
@@ -44,8 +46,8 @@ public class XRouter<T> {
     }
 
     /** 匹配目标 */
-    public T match(String path) {
-        for (XRuleListener<T> l : _routerList.values()) {
+    public XHandler match(String path) {
+        for (XRuleListener<XHandler> l : _routerList.values()) {
             if (l.matched(path)) {
                 return l.target;
             }
@@ -54,10 +56,10 @@ public class XRouter<T> {
         return null;
     }
 
-    public List<T> matches(String path) {
-        List<T> list  =new ArrayList<>();
+    public List<XHandler> matches(String path) {
+        List<XHandler> list  =new ArrayList<>();
 
-        for (XRuleListener<T> l : _routerList.values()) {
+        for (XRuleListener<XHandler> l : _routerList.values()) {
             if (l.matched(path)) {
                 list.add(l.target);
             }

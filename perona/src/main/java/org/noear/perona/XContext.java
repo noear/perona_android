@@ -24,7 +24,7 @@ public class XContext implements Serializable {
     private transient Object _requester;
     private transient Map<String,Object> _attrMap;
 
-    public XContext(Object requester, String url, Map<String,Object> params, XCallback callback) {
+    public XContext(Object requester, String url, Map<String,Object> paramS, XCallback callback) {
         __guid = XUtil.guid();
         _originalUrl = url;
 
@@ -33,8 +33,8 @@ public class XContext implements Serializable {
         _requester = requester;
         _callback = callback;
 
-        if(params!=null) {
-            _paramMap.putAll(params);
+        if(paramS!=null) {
+            _paramMap.putAll(paramS);
         }
 
         //将queryString的参数进行整合

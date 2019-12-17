@@ -24,9 +24,9 @@ public class XApp {
     public static XApp start(Application application) {
         return start(application,null);
     }
-    public static XApp start(Application application, Map<String,Object> params) {
+    public static XApp start(Application application, Map<String,Object> paramS) {
         if (_global == null) {
-            _global = new XApp(application, params);
+            _global = new XApp(application, paramS);
 
             //加载组件
             try {
@@ -73,15 +73,15 @@ public class XApp {
     /** 当前应用 */
     private Application _application;
     /** 启动参数 */
-    private Map<String,Object> _params;
+    private Map<String,Object> _paramS;
 
-    private XApp(Application application, Map<String,Object> params) {
+    private XApp(Application application, Map<String,Object> paramS) {
         _router = new XRouter();
         _application = application;
-        _params = new HashMap<>();
+        _paramS = new HashMap<>();
 
-        if (params != null) {
-            _params.putAll(params);
+        if (paramS != null) {
+            _paramS.putAll(paramS);
         }
     }
 
@@ -92,10 +92,10 @@ public class XApp {
 
     /** 启动参数 */
     public boolean paramHas(String key){
-        return _params.containsKey(key);
+        return _paramS.containsKey(key);
     }
     public Object paramGet(String key){
-        return _params.get(key);
+        return _paramS.get(key);
     }
 
     /** 手动添加模块 */

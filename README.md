@@ -23,8 +23,15 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        XApp.start(this);
+        //可以初始化一些参数
+        //
+        Map<String, Object> args = new HashMap<>();
+        args.put("evn", 1);
+
+        XApp.start(this,  args);
+        //
         //...
+        //
     }
 }
 

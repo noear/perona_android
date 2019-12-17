@@ -17,8 +17,9 @@ public class App extends Application {
         super.onCreate();
 
         //可以初始化一些参数
+        //
         Map<String, Object> args = new HashMap<>();
-        args.put("evn", 1);
+        args.put("env", 1);
 
         XApp.start(this,  args);
 

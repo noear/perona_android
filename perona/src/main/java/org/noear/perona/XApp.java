@@ -44,7 +44,7 @@ public class XApp {
     /** 自动加载模块 */
     private Map<Class<?>, XModule> _modules = new HashMap<>();
     private void loadModules() throws Exception {
-        final String dir = "solonboot";
+        final String dir = "perona";
 
         AssetManager am = _application.getAssets();
         String[] list = am.list(dir);
@@ -56,7 +56,7 @@ public class XApp {
                 Properties prop = new Properties();
                 prop.load(am.open(dir + "/" + uri));
 
-                String xmstr = prop.getProperty("solonboot.xmodule");
+                String xmstr = prop.getProperty("perona.xmodule");
 
                 if (XUtil.isEmpty(xmstr) == false) {
                     XModule module = XUtil.newClass(xmstr);
